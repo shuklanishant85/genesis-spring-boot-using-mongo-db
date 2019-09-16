@@ -40,3 +40,9 @@ Below is the list of APIs provided by the project:
 | ---- PUT ----- | http://localhost:8080/megaman/bosses/update/{name}                           |
 | ---- POST ---- | http://localhost:8080/megaman/bosses/update/{name}                           |
 | ---- DELETE -- | http://localhost:8080/megaman/bosses/update/{name}                           |
+
+MongoDB Cloud Atlas Details:
+	Cluster: AWS North Verginia
+	URI: mongodb+srv://devcluster-pybq6.mongodb.net/megaman
+	DB: mageman
+	Note- All credentials have been added in the application.properties file to support quick connection.
