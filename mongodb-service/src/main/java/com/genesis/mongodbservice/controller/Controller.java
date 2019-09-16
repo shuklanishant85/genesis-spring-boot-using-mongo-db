@@ -2,9 +2,16 @@ package com.genesis.mongodbservice.controller;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,12 +23,14 @@ import com.genesis.mongodbservice.repositories.BossesRepository;
 @RequestMapping("/megaman/bosses")
 public class Controller {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
+
 	@Autowired
 	private BossesRepository bossesRepository;
 
 	@GetMapping("/{id}")
 	public Bosses getBossesById(@PathVariable("id") String id) {
-		return bossesRepository.findBy_id(id);
+		return bossesRepository.findBy_id(new ObjectId(id));
 	}
 
 	@GetMapping("/name/{name}")
@@ -60,4 +69,27 @@ public class Controller {
 		return bossesRepository.findAll();
 	}
 
+	@PutMapping("/update/{name}")
+	public Bosses updateBosses(@PathVariable("name") String name, @RequestBody Bosses updatedBoss) {
+		LOGGER.info("name: {} , weapon: {} , weakness: {} ", updatedBoss.getName(), updatedBoss.getWeapon(),
+				updatedBoss.getWeakness());
+		return bossesRepository.updateBossData(name, updatedBoss.getName(), updatedBoss.getWeapon(),
+				updatedBoss.getWeakness());
+	}
+
+	@PostMapping("/update/{name}")
+	public Bosses updateBossByName(@PathVariable("name") String name, @RequestBody Bosses updatedBoss) {
+		LOGGER.info("name: {} , weapon: {} , weakness: {} ", updatedBoss.getName(), updatedBoss.getWeapon(),
+				updatedBoss.getWeakness());
+		Bosses boss = bossesRepository.findByName(name);
+		updatedBoss.set_id(boss.get_id());
+		bossesRepository.save(updatedBoss);
+		return bossesRepository.findByName(name);
+	}
+
+	@DeleteMapping("/update/{name}")
+	public boolean deleteBossByName(@PathVariable("name") String name) {
+		bossesRepository.deleteByName(name);
+		return true;
+	}
 }

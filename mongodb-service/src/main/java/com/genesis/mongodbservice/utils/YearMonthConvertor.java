@@ -23,11 +23,11 @@ public class YearMonthConvertor implements GenericConverter {
 
 	@Override
 	public Object convert(Object source, TypeDescriptor sourceType, TypeDescriptor targetType) {
+		YearMonth yearMonth = null;
 		if (source instanceof String && source.toString().matches("\\d\\d\\/\\d\\d+")) {
-			CharSequence text;
-			YearMonth yearMonth = YearMonth.parse(source.toString());
+			yearMonth = YearMonth.parse(source.toString());
 		}
-		return null;
+		return yearMonth;
 	}
 
 }

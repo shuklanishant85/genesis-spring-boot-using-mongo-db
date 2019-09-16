@@ -10,6 +10,9 @@ public class Bosses {
 	public String weapon;
 	public String weakness;
 
+	public Bosses() {
+	}
+
 	public Bosses(ObjectId _id, String name, String weapon, String weakness) {
 		super();
 		this._id = _id;
@@ -18,8 +21,8 @@ public class Bosses {
 		this.weakness = weakness;
 	}
 
-	public String get_id() {
-		return _id.toString();
+	public ObjectId get_id() {
+		return _id;
 	}
 
 	public void set_id(ObjectId _id) {
