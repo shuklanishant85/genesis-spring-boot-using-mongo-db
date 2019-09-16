@@ -29,11 +29,14 @@ Below is the list of APIs provided by the project:
 
 | Request Method | ----------------------- Request Endpoint ----------------------------------- |
 | -------------- | ---------------------------------------------------------------------------- |
-| ---- GET ----- | http://localhost:8080/megaman/bosses/{id}                                 	  |
-| ---- GET ----- | http://localhost:8080/megaman/bosses/all                                  	  |
-| ---- GET ----- | http://localhost:8080/megaman/bosses/name/{name}                          	  |
-| ---- GET ----- | http://localhost:8080/megaman/bosses/weapon/{weapon}                      	  |
-| ---- GET ----- | http://localhost:8080/megaman/bosses/weakness/{weakness}                  	  |
+| ---- GET ----- | http://localhost:8080/megaman/bosses/{id}                                 	|
+| ---- GET ----- | http://localhost:8080/megaman/bosses/all                                  	|
+| ---- GET ----- | http://localhost:8080/megaman/bosses/name/{name}                          	|
+| ---- GET ----- | http://localhost:8080/megaman/bosses/weapon/{weapon}                      	|
+| ---- GET ----- | http://localhost:8080/megaman/bosses/weakness/{weakness}                  	|
 | ---- GET ----- | http://localhost:8080/megaman/bosses/weapon/{weapon}/and/weakness/{weakness} | 
 | ---- GET ----- | http://localhost:8080/megaman/bosses/weapon/{weapon}/or/weakness/{weakness}  |
 | ---- GET ----- | http://localhost:8080/megaman/bosses/weakness/{weakness}?order=desc          |
+| ---- PUT ----- | http://localhost:8080/megaman/bosses/update/{name}                           |
+| ---- POST ---- | http://localhost:8080/megaman/bosses/update/{name}                           |
+| ---- DELETE -- | http://localhost:8080/megaman/bosses/update/{name}                           |
