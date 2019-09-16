@@ -2,7 +2,7 @@
 Spring Boot Microservice to serve data using REST and MongoDB
 
 ## SETTING UP THE DATA BASE:
-The database has already been set up MongoDB Cloud Atlas:
+The database has already been set up on MongoDB Cloud Atlas:
 Steps of setting the Database: 
 
 1. Connect to MongoDB Atlas with your CLI (details for my AWS instance can be found in details below).
@@ -42,7 +42,11 @@ Below is the list of APIs provided by the project:
 | ---- DELETE -- | http://localhost:8080/megaman/bosses/update/{name}                           |
 
 MongoDB Cloud Atlas Details:
+
 	Cluster: AWS North Verginia
+	
 	URI: mongodb+srv://devcluster-pybq6.mongodb.net/megaman
+	
 	DB: mageman
+	
 	Note- All credentials have been added in the application.properties file to support quick connection.
